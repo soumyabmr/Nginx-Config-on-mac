@@ -1,5 +1,5 @@
-# Nginx-Config-on-mac
-Config Nginx on Mac
+# Configuring Nginx on Mac
+Setup Nginx on Mac
 
 
 ## Homebrew 
