@@ -63,13 +63,12 @@ sudo mkdir -p /var/www
 sudo chown :staff /var/www
 sudo chmod 775 /var/www
 ```
-
 Remove the current default nginx.conf (also available as `/usr/local/etc/nginx/nginx.conf.default` in case you want to take a look) and download this custom one via curl from GitHub:
 
 ```
-	rm /usr/local/etc/nginx/nginx.conf
+rm /usr/local/etc/nginx/nginx.conf
     
-        curl -L https://github.com/soumyabmr/Nginx-Config-on-mac/blob/main/nginx.conf -o /usr/local/etc/nginx/nginx.conf
+curl -L https://github.com/soumyabmr/Nginx-Config-on-mac/blob/main/nginx.conf -o /usr/local/etc/nginx/nginx.conf
 
 ```
 Download the following PHP-FPM configuration from GitHub:
@@ -89,7 +88,10 @@ Now we need to symlink the virtual hosts that we want to enable into the sites-e
 ln -sfv /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 
 ```
-
+#### restart Nginx
+```
+sudo brew services restart nginx
+```
 #### Final tests
 
 Thats it, everything should be up and running. Click on the links below to ensure that:
