@@ -7,44 +7,44 @@ Config Nginx on Mac
 
 Download and install using the following command:
 
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     
 Check for any problems or conflicts:
 
-    brew doctor
+brew doctor
     
 Update and Upgrade `brew` formulas:
 
-    brew update && brew upgrade
+brew update && brew upgrade
 
 
 ## NGINX
 
-    brew install nginx
+brew install nginx
    
 #### Setup auto start
 
 Since we want to use port 80 have to start the Nginx process as root:
 ```
-	sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons/
-	sudo chown root:wheel /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons/
+sudo chown root:wheel /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 ``` 
 #### Test web server
 
 Start Nginx for the first time:
 ```
-	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 ```
 The default configuration is set that it will listen on port 8080 instead of the HTTP standard 80. Ignore that for now:
 ```
-	curl -IL http://localhost:8080
+curl -IL http://localhost:8080
 ```
 
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 
 Stop Nginx again:
 ```
-	sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 ```
 ## Configurations
 
