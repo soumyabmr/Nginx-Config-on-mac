@@ -25,27 +25,27 @@ Update and Upgrade `brew` formulas:
 #### Setup auto start
 
 Since we want to use port 80 have to start the Nginx process as root:
-
+```
 	sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons/
 	sudo chown root:wheel /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
-    
+``` 
 #### Test web server
 
 Start Nginx for the first time:
-
+```
 	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
-    
+```
 The default configuration is set that it will listen on port 8080 instead of the HTTP standard 80. Ignore that for now:
-
+```
 	curl -IL http://localhost:8080
-
+```
 
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 
 Stop Nginx again:
-
+```
 	sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
-
+```
 ## Configurations
 
 #### nginx.conf
@@ -66,15 +66,14 @@ sudo chmod 775 /var/www
 
 Remove the current default nginx.conf (also available as `/usr/local/etc/nginx/nginx.conf.default` in case you want to take a look) and download this custom one via curl from GitHub:
 
-
+```
 	rm /usr/local/etc/nginx/nginx.conf
     
-
         curl -L https://github.com/soumyabmr/Nginx-Config-on-mac/blob/main/nginx.conf -o /usr/local/etc/nginx/nginx.conf
 
-
+```
 Download the following PHP-FPM configuration from GitHub:
-
+```
 curl -L https://github.com/soumyabmr/Nginx-Config-on-mac/blob/main/php-fpm -o /usr/local/etc/nginx/conf.d/php-fpm
 
 ```
